@@ -13,7 +13,7 @@ $user = $result_user->fetch_assoc();
 if (!$user) die("Belum ada data user.");
 $nim = $user['nim'];
 
-// Query Data
+
 $biodata      = $DB->query("SELECT * FROM tbl_biodata WHERE nim = '$nim'");
 $pendidikan   = $DB->query("SELECT * FROM tbl_pendidikan WHERE nim = '$nim' ORDER BY tahun DESC");
 $pengalaman   = $DB->query("SELECT * FROM tbl_pengalaman WHERE nim = '$nim'");
@@ -51,7 +51,7 @@ $list_users = $DB->query("SELECT nim, nama_lengkap, foto_profil FROM tbl_users O
       <div class="dropdown-content">
           <p class="dropdown-header">Pilih Profil:</p>
           <?php 
-          // Kembalikan data user ke baris pertama agar bisa di-loop ulang
+       
           $list_users->data_seek(0); 
           while($u = $list_users->fetch_assoc()): 
           ?>
@@ -130,12 +130,12 @@ $list_users = $DB->query("SELECT nim, nama_lengkap, foto_profil FROM tbl_users O
         <div class="aside-hobbies">
             
             <?php 
-            // Reset variabel player ke default
+            
             $lagu_path = "";
             $judul_lagu_player = "Belum Ada Lagu"; 
             $nama_artis_player = "Silakan Upload";
             
-            // Loop semua data dari database
+       
             while($item = $aside_items->fetch_assoc()): 
                 
                 
